@@ -1,410 +1,541 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Satvik Jambagi - Full Stack Developer</title>
 
-    <link rel="stylesheet" href="style.css" />
-    <!-- In your HTML head -->
-    <link rel="icon" type="image/png" href="./favicon.png" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satvik Jambagi | AI/ML & Full Stack Developer</title>
 
-  <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-logo">
-          <span class="logo-text">Satvik Jambagi</span>
-        </div>
+  <link rel="icon" type="image/png" href="./favicon.png">
 
-        <ul class="nav-menu">
-          <li><a href="#home" class="nav-link">Home</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#experience" class="nav-link">Experience</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-        <div class="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
+  <!-- FontAwesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Google Fonts: Space Grotesk (geometric headers) & Inter (clean body text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Custom Cursor Elements -->
+  <div id="custom-cursor-dot"></div>
+  <div id="custom-cursor-ring"></div>
+
+  <!-- Landing Intro Screen (System Ingress Portal) -->
+  <div id="landing-screen">
+    <canvas id="landing-canvas"></canvas>
+
+    <!-- Scrolling diagnostic logs -->
+    <div class="boot-logs-container" id="bootLogsLeft"></div>
+    <div class="boot-logs-container" id="bootLogsRight"></div>
+
+    <div class="landing-content">
+      <div class="core-container" id="ingressCore">
+        <!-- Spinning orbital rings -->
+        <div class="core-ring core-ring-outer"></div>
+        <div class="core-ring core-ring-middle"></div>
+        <div class="core-ring core-ring-inner"></div>
+        <button class="core-center" id="enter-btn">
+          <span class="core-pulse-circle"></span>
+          <span class="core-text">INGRESS</span>
+        </button>
       </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-      <div class="hero-container">
-        <div class="hero-content">
-          <div class="hero-text">
-            <h1 class="hero-title">Hi, I'm Satvik Jambagi</h1>
-            <p class="hero-subtitle">Full Stack Developer & Problem Solver</p>
-            <p class="hero-description">
-              Computer Science undergraduate at VIT specializing in full-stack
-              development, cloud-native systems, and scalable backend
-              architectures.
-            </p>
+      <div class="landing-meta">
+        <h1 class="landing-title" data-value="SATVIK JAMBAGI">SATVIK JAMBAGI</h1>
+        <p class="landing-subtitle">AI/ML &amp; FULL STACK DEVELOPER</p>
+      </div>
+    </div>
+  </div>
 
-            <div class="hero-buttons">
-              <a href="#projects" class="btn btn-primary">View My Work</a>
-              <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo" id="nav-logo-btn">
+        <span class="logo-dot"></span>
+        <span class="logo-text" data-value="SATVIK JAMBAGI">SATVIK JAMBAGI</span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <!-- Hero Text -->
+        <div class="hero-text-wrapper">
+          <div class="hero-status">
+            <span class="status-indicator animate-pulse"></span>
+            <span class="status-label">Open for Winter/Summer Internships 2026/27</span>
+          </div>
+          <h1 class="hero-title">AI/ML &amp; Full Stack Developer</h1>
+          <p class="hero-description">
+            Computer Science undergraduate at VIT specializing in distributed systems, event-driven architectures, and
+            multi-agent orchestration frameworks.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">Explore Projects</a>
+            <button class="btn btn-secondary" id="resumeSelectorBtn">Get Resume <i
+                class="fas fa-chevron-down ml-2"></i></button>
+          </div>
+        </div>
+
+        <!-- Terminal CLI Widget -->
+        <div class="terminal-widget">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <span class="term-btn term-close"></span>
+              <span class="term-btn term-min"></span>
+              <span class="term-btn term-max"></span>
+            </div>
+            <div class="terminal-title">satvik@portfolio: ~</div>
+          </div>
+          <div class="terminal-body" id="terminalBody">
+            <div class="terminal-line">Welcome to Satvik's Interactive Console.</div>
+            <div class="terminal-line">Type <span class="text-accent">help</span> to view available commands.</div>
+            <div class="terminal-input-line">
+              <span class="terminal-prompt">satvik@portfolio:~$</span>
+              <input type="text" class="terminal-input" id="terminalInput" autofocus autocomplete="off"
+                spellcheck="false">
             </div>
           </div>
-          <div class="hero-image">
-            <div class="floating-card">
-              <div class="card-content">
-                <i class="fas fa-code"></i>
-                <h3>900+</h3>
-                <p>Problems</p>
-                <p>Solved</p>
-              </div>
-            </div>
-            <div class="floating-card delay-1">
-              <div class="card-content">
-                <i class="fas fa-graduation-cap"></i>
-                <h3>9.40</h3>
-                <p>CGPA</p>
-              </div>
-            </div>
-            <div class="floating-card delay-2">
-              <div class="card-content">
-                <i class="fas fa-project-diagram"></i>
-                <h3>Full Stack</h3>
-                <p>Developer</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
-      <div class="scroll-indicator">
-        <div class="scroll-arrow"></div>
-      </div>
-    </section>
+    </div>
+  </header>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-      <div class="container">
+  <!-- Resume Selection Modal -->
+  <div class="modal" id="resumeModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeResumeModal">&times;</button>
+      <h3 class="modal-title">Select Resume Track</h3>
+      <p class="modal-desc">Download or view the resume version tailored to your team's stack.</p>
+      <div class="resume-options-grid">
+        <a href="https://drive.google.com/file/d/15BpsGhs5RH8Ptlvdhq3hkdUaeFcZu6pY/view?usp=sharing" target="_blank"
+          class="resume-option-card">
+          <div class="option-icon"><i class="fas fa-server"></i></div>
+          <h4>Software Engineering Track</h4>
+          <p>Microservices, Kafka, Redis, Distributed Databases, Node.js & Go.</p>
+          <span class="option-btn">View SWE Resume <i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a href="https://drive.google.com/file/d/18LMyU11GkB_xQu4ba5Laa0xY-YYNHYFt/view?usp=sharing" target="_blank"
+          class="resume-option-card">
+          <div class="option-icon"><i class="fas fa-brain"></i></div>
+          <h4>AI & Machine Learning Track</h4>
+          <p>Agentic Workflows, LangGraph, RAG, PyTorch, LLMs & Computervision.</p>
+          <span class="option-btn">View AI/ML Resume <i class="fas fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">01 // PROFILE</span>
         <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-          <div class="education-card">
-            <h3>Education</h3>
-            <div class="education-item">
+      </div>
+
+      <div class="about-grid">
+        <!-- Left Column: Photo & Education -->
+        <div class="about-left">
+          <div class="profile-img-container">
+            <img src="Photo.jpg" alt="Satvik Jambagi" class="profile-img">
+          </div>
+
+          <div class="edu-card">
+            <div class="edu-header">
               <h4>B.Tech in Computer Science</h4>
-              <p>Vellore Institute of Technology</p>
-              <span class="date">Aug 2023 – Present</span>
-              <div class="cgpa">CGPA: <span class="highlight">9.40</span></div>
-              <button class="btn btn-secondary" id="viewTranscript">
-                View Resume
-              </button>
+              <span class="edu-date">2023 – 2027</span>
             </div>
+            <p class="edu-school">Vellore Institute of Technology</p>
+            <div class="edu-gpa">CGPA: <span class="text-accent text-large">9.36 / 10</span></div>
+            <p class="edu-coursework">
+              <strong>Core Coursework:</strong> Data Structures & Algorithms, Object-Oriented Programming, Operating
+              Systems, Computer Networks, Database Management Systems, Software Engineering, Machine Learning,
+              Probability & Statistics.
+            </p>
           </div>
-          <script>
-            document
-              .getElementById("viewTranscript")
-              .addEventListener("click", function () {
-                // Replace this with your actual Google Drive share link
-                const driveLink =
-                  "https://drive.google.com/file/d/1d8Batmevz_ZDZ5Tx3to1Nq-wcsv-8Jl9/view?usp=sharing";
-                window.open(driveLink, "_blank");
-              });
-          </script>
-          <div class="stats-grid">
-            <div class="stat-card">
-              <h3>600+</h3>
-              <p>LeetCode Problems Solved</p>
-            </div>
-            <div class="stat-card">
-              <h3>900+</h3>
-              <p>Total DSA Problems</p>
-            </div>
-            <div class="stat-card">
-              <h3>Top 12.5%</h3>
-              <p>LeetCode Global Rank</p>
-            </div>
-            <div class="stat-card">
-              <h3>1363</h3>
-              <p>Codeforces Rating</p>
+        </div>
+
+        <!-- Right Column: Bio & Credentials -->
+        <div class="about-right">
+          <p class="lead">
+            I am a Computer Science student at Vellore Institute of Technology, driven by a deep fascination for
+            high-performance backend infrastructures and cognitive AI systems.
+          </p>
+          <p>
+            My engineering philosophy centers on clean code, testability, and solving bottlenecks at scale. Whether
+            deploying event-driven notification systems using Apache Kafka, architecting robust geospatial databases for
+            real-time applications, or coding conflict-driven clause learning SAT solvers from scratch in C++17, I enjoy
+            diving into details.
+          </p>
+
+          <!-- Credentials & Highlights -->
+          <div class="credentials-section">
+            <h4 class="credentials-title">Highlights & Credentials</h4>
+            <div class="cred-grid">
+              <div class="cred-card">
+                <div class="cred-icon"><i class="fas fa-bolt"></i></div>
+                <div class="cred-text">
+                  <h5>AWS Summit Mumbai 2026</h5>
+                  <p>Selected for exclusive 1-on-1 Lightning Session with Praveen Jayakumar (AWS Head of Gen & Agentic
+                    AI) on building production-ready Agentic AI systems.</p>
+                </div>
+              </div>
+              <div class="cred-card">
+                <div class="cred-icon"><i class="fas fa-award"></i></div>
+                <div class="cred-text">
+                  <h5>Machine Learning Specialization</h5>
+                  <p>By Andrew Ng (DeepLearning.AI). Deep foundations in supervised, unsupervised learning, and model
+                    optimization.</p>
+                </div>
+              </div>
+              <div class="cred-card">
+                <div class="cred-icon"><i class="fas fa-certificate"></i></div>
+                <div class="cred-text">
+                  <h5>IBM Advanced Generative AI</h5>
+                  <p>Professional Certificate covering advanced LLM prompt engineering, RAG, and agent integration
+                    workflows.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-      <div class="container">
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">02 // TOOLKIT</span>
         <h2 class="section-title">Technical Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h3>Languages</h3>
-            <div class="skill-items">
-              <span class="skill-tag">C++</span>
-              <span class="skill-tag">Java</span>
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">JavaScript</span>
-              <span class="skill-tag">HTML</span>
-              <span class="skill-tag">CSS</span>
-              <span class="skill-tag">C</span>
-            </div>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Category: Languages & Frameworks -->
+        <div class="skill-group">
+          <div class="skill-group-header">
+            <i class="fas fa-code"></i>
+            <h3>Languages & Core</h3>
           </div>
-          <div class="skill-category">
-            <h3>Frameworks & Tools</h3>
-            <div class="skill-items">
-              <span class="skill-tag">React.js</span>
-              <span class="skill-tag">Redux</span>
-              <span class="skill-tag">Node.js</span>
-              <span class="skill-tag">Express.js</span>
-              <span class="skill-tag">Flask</span>
-              <span class="skill-tag">EJS</span>
-              <span class="skill-tag">Mongoose</span>
-            </div>
+          <div class="skill-tags">
+            <span class="tag">C++17</span>
+            <span class="tag">Python</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">React</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">Java</span>
+            <span class="tag">SQL</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">C</span>
+            <span class="tag">HTML5 / CSS3</span>
           </div>
-          <div class="skill-category">
-            <h3>Databases</h3>
-            <div class="skill-items">
-              <span class="skill-tag">MySQL</span>
-              <span class="skill-tag">PostgreSQL</span>
-              <span class="skill-tag">MongoDB</span>
-              <span class="skill-tag">Oracle SQL Plus</span>
-            </div>
+        </div>
+
+        <!-- Category: Backend & Distributed -->
+        <div class="skill-group">
+          <div class="skill-group-header">
+            <i class="fas fa-server"></i>
+            <h3>Backend & Distributed</h3>
           </div>
-          <div class="skill-category">
-            <h3>Design & Others</h3>
-            <div class="skill-items">
-              <span class="skill-tag">AWS (EC2, S3, CloudFront)</span>
-              <span class="skill-tag">Vercel</span>
-              <span class="skill-tag">Git</span>
-              <span class="skill-tag">GitHub</span>
-              <span class="skill-tag">Tailwind CSS</span>
-              <span class="skill-tag">Power BI</span>
-              <span class="skill-tag">MATLAB</span>
-            </div>
+          <div class="skill-tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">Express.js</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Apache Kafka</span>
+            <span class="tag">RabbitMQ</span>
+            <span class="tag">Socket.IO</span>
+            <span class="tag">RESTful APIs</span>
+            <span class="tag">Microservices</span>
+          </div>
+        </div>
+
+        <!-- Category: AI & Generative AI -->
+        <div class="skill-group">
+          <div class="skill-group-header">
+            <i class="fas fa-brain"></i>
+            <h3>AI & Generative AI</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">PyTorch</span>
+            <span class="tag">TensorFlow</span>
+            <span class="tag">LangGraph</span>
+            <span class="tag">LangChain</span>
+            <span class="tag">LangSmith</span>
+            <span class="tag">Agentic AI</span>
+            <span class="tag">RAG Pipelines</span>
+            <span class="tag">Model Context Protocol (MCP)</span>
+            <span class="tag">SHAP (XAI)</span>
+            <span class="tag">Hugging Face</span>
+          </div>
+        </div>
+
+        <!-- Category: Database & Infrastructure -->
+        <div class="skill-group">
+          <div class="skill-group-header">
+            <i class="fas fa-database"></i>
+            <h3>Databases & DevOps</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">Redis (Caching)</span>
+            <span class="tag">FAISS / ChromaDB</span>
+            <span class="tag">AWS (EC2, S3, CloudFront)</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Linux / Bash</span>
+            <span class="tag">Git / GitHub</span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-      <div class="container">
-        <h2 class="section-title">Featured Projects</h2>
+  <!-- Experience & Achievements -->
+  <section id="experience" class="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">03 // HISTORY & WINS</span>
+        <h2 class="section-title">Experience & Achievements</h2>
+      </div>
 
-        <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-image">
-              <div class="project-overlay">
-                <div class="project-links">
-                  <a href="https://unigrid.vercel.app/" class="project-link"
-                    ><i class="fas fa-external-link-alt"></i
-                  ></a>
-                  <a href="https://github.com/7vik2005" class="project-link"
-                    ><i class="fab fa-github"></i
-                  ></a>
+      <div class="exp-ach-layout">
+        <!-- Experience Timeline -->
+        <div class="timeline-wrapper">
+          <h3 class="subsection-title"><i class="fas fa-briefcase"></i> Experience</h3>
+          <div class="timeline">
+            <!-- PW Internship -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h4>AI Engineer Intern</h4>
+                  <span class="timeline-date">Mar 2025 – Aug 2025</span>
                 </div>
+                <h5 class="timeline-company">Physics Wallah (PW) — Remote</h5>
+                <p>
+                  Engineered <strong>NutriBaba</strong>, a production-grade Agentic AI-powered nutrition platform
+                  processing multimodal inputs for automated diet and meal insights.
+                </p>
+                <ul class="timeline-bullets">
+                  <li>Developed modular backend pipelines linking <strong>5+ specialized Model Context Protocol (MCP)
+                      servers</strong> (wearable, recipes, logs).</li>
+                  <li>Orchestrated a <strong>multi-agent framework (Nutrition, Memory, Health Reasoning)</strong> using
+                    LangGraph for stateful contextual feedback.</li>
+                  <li>Scaled backend deployment using <strong>FastAPI, PostgreSQL, Redis caching, and AWS
+                      EC2/S3</strong>.</li>
+                </ul>
               </div>
             </div>
-            <div class="project-content">
-              <h3>UniGrid</h3>
-              <p>
-                Academic Records Management System built using React, Node.js,
-                and PostgreSQL to digitize institutional workflows and
-                centralize student, faculty, and admin operations.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">React.js</span>
-                <span class="tech-tag">Node.js</span>
-                <span class="tech-tag">PostgreSQL</span>
-              </div>
-              <div class="project-stats">
-                <span
-                  ><i class="fas fa-database"></i> 35% efficiency boost</span
-                >
-              </div>
-            </div>
-          </div>
-          <div class="project-card">
-            <div class="project-image">
-              <div class="project-overlay">
-                <div class="project-links">
-                  <a href="#" class="project-link"
-                    ><i class="fas fa-external-link-alt"></i
-                  ></a>
-                  <a
-                    href="https://github.com/AJ1312/NutriAI-pw"
-                    class="project-link"
-                    ><i class="fab fa-github"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3>NutriBaba</h3>
-              <p>
-                AI-powered nutritive insights platform deployed on AWS using
-                EC2, S3, and CloudFront with a Flask-based backend for image
-                analysis and REST APIs.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Flask</span>
-                <span class="tech-tag">AWS</span>
-                <span class="tech-tag">MongoDB</span>
-              </div>
-              <div class="project-stats">
-                <span
-                  ><i class="fas fa-cloud"></i> 40% scalability
-                  improvement</span
-                >
-              </div>
-            </div>
-          </div>
 
-          <!-- Add more project cards as needed -->
-          <div class="project-card">
-            <div class="project-image">
-              <div class="project-overlay">
-                <div class="project-links">
-                  <a
-                    href="https://codolio.com/profile/satvikkkk20"
-                    class="project-link"
-                    ><i class="fas fa-external-link-alt"></i
-                  ></a>
-                  <a
-                    href="https://github.com/7vik2005/LeetCode"
-                    class="project-link"
-                    ><i class="fab fa-github"></i
-                  ></a>
+            <!-- VIT Stellar Leadership -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h4>Senior Core Member</h4>
+                  <span class="timeline-date">Jan 2024 – Jan 2025</span>
                 </div>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3>Algorithm Solutions</h3>
-              <p>
-                Collection of optimized solutions for 500+ LeetCode problems and
-                competitive programming challenges.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">C++</span>
-                <span class="tech-tag">Java</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">SQL</span>
-              </div>
-              <div class="project-stats">
-                <span><i class="fas fa-trophy"></i> 900+ problems solved</span>
+                <h5 class="timeline-company">VIT Stellar</h5>
+                <p>
+                  Guided 50+ students in optics, night-sky photography coordinates, and image processing workflows
+                  during the Cosmic Walk 3.0 event.
+                </p>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-      <div class="container">
-        <h2 class="section-title">Experience & Leadership</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h3>Junior Core Member</h3>
-              <h4>VIT Stellar</h4>
-              <span class="timeline-date">Jan 2024 – Jan 2025</span>
-              <p>
-                Organized Cosmic Walk 3.0, guiding 50+ participants in
-                stargazing and astrophotography events.
-              </p>
+        <!-- Achievements Column -->
+        <div class="achievements-column">
+          <h3 class="subsection-title"><i class="fas fa-trophy"></i> Achievements</h3>
+          <div class="achievements-grid">
+            <div class="ach-card">
+              <div class="ach-num">1150+</div>
+              <h4>DSA Problems Solved</h4>
+              <p>Across LeetCode, Codeforces, GeeksforGeeks, and AtCoder.</p>
             </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h3>Project Intern</h3>
-              <h4>Physics Wallah</h4>
-              <span class="timeline-date">Mar 2025 – Aug 2025</span>
-              <p>
-                Engineered end-to-end development of NutriBaba, an AI-powered
-                nutrition analysis platform using AWS infrastructure. Worked in
-                Agile sprints, improving deployment scalability and feature
-                delivery speed.
-              </p>
+
+            <div class="ach-card">
+              <div class="ach-num">Top 7.5%</div>
+              <h4>LeetCode Global Rank</h4>
+              <p>With 800+ optimized algorithmic solutions submitted.</p>
+            </div>
+
+            <div class="ach-card">
+              <div class="ach-num">1389</div>
+              <h4>Codeforces Rating</h4>
+              <p>Competitive programming active participant.</p>
+            </div>
+
+            <div class="ach-card">
+              <div class="ach-num">2nd Place</div>
+              <h4>Bolt 2.0 Hackathon</h4>
+              <p>Freshers Division, competing against 150+ teams in 24h build.</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-      <div class="container">
-        <h2 class="section-title">Let's Connect</h2>
-        <div class="contact-content">
-          <div class="contact-info">
-            <div class="contact-item">
-              <i class="fas fa-envelope"></i>
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">04 // PORTFOLIO</span>
+        <h2 class="section-title">Projects</h2>
+      </div>
+
+      <!-- Projects Categories Filter Tabs -->
+      <div class="project-filters">
+        <button class="filter-tab active" data-filter="all">All Projects</button>
+        <button class="filter-tab" data-filter="ai-gen">Agentic AI & GenAI</button>
+        <button class="filter-tab" data-filter="dist-web">Distributed & Full-Stack</button>
+        <button class="filter-tab" data-filter="sys-alg">Systems & Algorithms</button>
+        <button class="filter-tab" data-filter="cv-sec">Computer Vision & Security</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Project cards will be rendered dynamically by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Details Modal (Drawer) -->
+  <div class="modal" id="projectDetailsModal">
+    <div class="modal-content project-drawer">
+      <button class="modal-close" id="closeDetailsModal">&times;</button>
+      <div class="drawer-header">
+        <h3 id="modalProjectTitle">Project Title</h3>
+        <div class="drawer-links">
+          <a href="#" target="_blank" id="modalProjectGithub" class="btn btn-secondary btn-sm"><i
+              class="fab fa-github"></i> GitHub Code</a>
+        </div>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-tech-stack" id="modalProjectTech">
+          <!-- Rendered tech tags -->
+        </div>
+        <div class="drawer-description">
+          <h4 class="drawer-section-title">Overview</h4>
+          <p id="modalProjectDesc">Detailed overview of the project...</p>
+
+          <h4 class="drawer-section-title">Core Engineering Features</h4>
+          <ul id="modalProjectFeatures">
+            <!-- Highlight bullet points -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">05 // CONNECT</span>
+        <h2 class="section-title">Get In Touch</h2>
+      </div>
+
+      <div class="contact-layout">
+        <!-- Contact Information -->
+        <div class="contact-info">
+          <h3>Let's build something scalable.</h3>
+          <p class="contact-intro">
+            I am looking for SWE / AI Internships for 2026 & 2027. If you have an opening or want to discuss systems
+            engineering, feel free to drop a message.
+          </p>
+
+          <div class="contact-details">
+            <div class="contact-detail-item">
+              <span class="icon-wrapper"><i class="fas fa-envelope"></i></span>
               <div>
-                <h3>Email</h3>
-                <p>satvik.shayappa2023@vitstudent.ac.in</p>
+                <span class="detail-label">Email</span>
+                <a href="mailto:satvikjambagi@gmail.com" class="detail-val">satvikjambagi@gmail.com</a>
               </div>
             </div>
-            <div class="contact-item">
-              <i class="fas fa-phone"></i>
+            <div class="contact-detail-item">
+              <span class="icon-wrapper"><i class="fas fa-phone"></i></span>
               <div>
-                <h3>Phone</h3>
-                <p>+91 80802 73783</p>
+                <span class="detail-label">Phone</span>
+                <span class="detail-val">+91 80802 73783</span>
               </div>
             </div>
-            <div class="social-links">
-              <a
-                href="https://www.linkedin.com/in/satvik-jambagi/"
-                class="social-link"
-                ><i class="fab fa-linkedin"></i
-              ></a>
-              <a href="https://github.com/7vik2005" class="social-link"
-                ><i class="fab fa-github"></i
-              ></a>
+            <div class="contact-detail-item">
+              <span class="icon-wrapper"><i class="fas fa-map-marker-alt"></i></span>
+              <div>
+                <span class="detail-label">Location</span>
+                <span class="detail-val">Pune, India</span>
+              </div>
             </div>
           </div>
-          <div class="contact-form">
-            <form>
-              <div class="form-group">
-                <input type="text" placeholder="Your Name" required />
-              </div>
-              <div class="form-group">
-                <input type="email" placeholder="Your Email" required />
-              </div>
-              <div class="form-group">
-                <textarea
-                  placeholder="Your Message"
-                  rows="5"
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">
-                Send Message
-              </button>
-            </form>
+
+          <div class="social-links-footer">
+            <a href="https://github.com/7vik2005" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/satvik-jambagi/" target="_blank" aria-label="LinkedIn"><i
+                class="fab fa-linkedin"></i></a>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <p>&copy; 2025 Satvik Jambagi. All rights reserved.</p>
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper">
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" id="formName" required placeholder=" ">
+                <label for="formName">Name</label>
+              </div>
+              <div class="form-group">
+                <input type="email" id="formEmail" required placeholder=" ">
+                <label for="formEmail">Email</label>
+              </div>
+            </div>
+            <div class="form-group full-width">
+              <textarea id="formMessage" required rows="5" placeholder=" "></textarea>
+              <label for="formMessage">Message</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane ml-2"></i></button>
+          </form>
+        </div>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
-  </body>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-layout">
+        <p>&copy; 2026 Satvik Jambagi.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
